@@ -14,7 +14,7 @@ fun RecipeApp(navController: NavHostController) {
     val viewState by recipeViewModel.categorieState
     NavHost(navController = navController, startDestination = Screen.RecipeScreen.route) {
         composable(route = Screen.RecipeScreen.route) {
-            RecipeScreen(viewState = viewState, navigatoDetalis = {
+            RecipeScreen(viewstate = viewState, navigatoDetalis = {
 /*these part is resposbile for passing data afrom  the current Screen to ht detalis screen.
                 it utlise the saved state Handle, which is a component of the Compose navigation frame work .
                  */

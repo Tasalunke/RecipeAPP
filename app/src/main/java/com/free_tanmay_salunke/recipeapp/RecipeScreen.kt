@@ -24,19 +24,19 @@ import coil.compose.rememberAsyncImagePainter
 @Composable
 fun RecipeScreen(
     modifier: Modifier = Modifier,
-    viewState: MainViewModel.RecipeState,
+    viewstate: MainViewModel.RecipeState,
     navigatoDetalis: (Category) -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         when {
-            viewState.loading -> {
+            viewstate.loading -> {
                 CircularProgressIndicator(modifier.align(Alignment.Center))
             }
 
-            viewState.error != null -> {
+            viewstate.error != null -> {
 //show error message
                 Text(
-                    text = "ERROR OCCURRED :${viewState.error}",
+                    text = "ERROR OCCURRED :${viewstate.error}",
                     color = Color.Red,
                     modifier = Modifier.align(
                         Alignment.Center
@@ -45,7 +45,7 @@ fun RecipeScreen(
             }
 
             else -> {
-                CategoryScreen(categories = viewState.list, navigatoDetalis)
+                CategoryScreen(categories = viewstate.list, navigatoDetalis)
 
             }
         }
@@ -58,7 +58,7 @@ fun CategoryScreen(
     categories: List<Category>,
     navigateToDetalis: (Category) -> Unit
 ) {
-    LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
+    LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize().padding(top = 50.dp)) {
         items(categories) { category ->
             CategoryItem(category = category, navigateToDetalis)
         }

@@ -24,10 +24,10 @@ fun CategoryDetaliScreen(category: Category) {
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = category.strCategory, textAlign = TextAlign.Center)
+        Text(modifier = Modifier.padding(top = 20.dp), text = category.strCategory, textAlign = TextAlign.Center)
         Image(
-            painter = rememberAsyncImagePainter(category.strCategory),
-            contentDescription = "${category.strCategoryDescription}",
+            painter = rememberAsyncImagePainter(category.strCategoryThumb),
+            contentDescription = "${category.strCategory},Thumbnail",
             modifier = Modifier
                 .wrapContentSize()
                 .aspectRatio(1f)
